@@ -87,11 +87,11 @@ namespace Task05
     {
         public static void Main(string[] args)
         {
-            Dollar dollar = new Dollar(decimal.Parse(Console.ReadLine()));
-            Euro euro = new Euro(decimal.Parse(Console.ReadLine()));
-
             try
             {
+                Dollar dollar = new Dollar(decimal.Parse(Console.ReadLine()));
+                Euro euro = new Euro(decimal.Parse(Console.ReadLine()));
+
                 Console.WriteLine((Euro)dollar);
                 Console.WriteLine((Dollar)euro);
             }
