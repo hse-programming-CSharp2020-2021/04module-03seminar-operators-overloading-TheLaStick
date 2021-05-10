@@ -35,7 +35,7 @@ namespace Task04
 
         public static explicit operator Celcius(Fahrenheit fahrenheit)
         {
-            return new Celcius(5 / 9 * (fahrenheit.Gradus - 32));
+            return new Celcius((fahrenheit.Gradus - 32) * 5 / 9);
         }
 
         public override string ToString()
@@ -55,7 +55,7 @@ namespace Task04
 
         public static explicit operator Fahrenheit(Celcius celcius)
         {
-            return new Fahrenheit(9 / 5 * celcius.Gradus + 32);
+            return new Fahrenheit(celcius.Gradus * 5 / 9 + 32);
         }
 
         public override string ToString()
