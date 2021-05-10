@@ -41,13 +41,13 @@ namespace Task03
 
         }
 
-        public static implicit operator Clock(int hours)
+        public static implicit operator Clock(int minutes)
         {
-            if (hours < 0)
+            if (minutes < 0)
             {
                 throw new ArgumentException();
             }
-            return new Clock(hours);
+            return new Clock(minutes / 60);
         }
 
         public static explicit operator int(Clock clock)
