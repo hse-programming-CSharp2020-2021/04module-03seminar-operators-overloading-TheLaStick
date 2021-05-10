@@ -100,6 +100,50 @@ public readonly struct Fraction
         }
         return $"{num}/{den}";
     }
+
+    public Fraction Simpify()
+    {
+
+        int divisor = GCD(num, den);
+        int newNum = num / divisor,
+            newDenom = den / divisor;
+        newDenom /= divisor;
+
+        if (newDenom < 0)
+        {
+            int newNom = -newNum,
+            newDen = -newDenom;
+            return new Fraction(newNom, newDen);
+        }
+        if (newDenom == 0)
+        {
+            return new Fraction(0, 1);
+        }
+        if (newNum == newDenom)
+        {
+            return new Fraction(1, 1);
+        }
+        if (newNum == -newDenom)
+        {
+            return new Fraction(-1, 1);
+        }
+
+        return this;
+    }
+
+    static int GCD(int a, int b)
+    {
+        int Remainder;
+
+        while (b != 0)
+        {
+            Remainder = a % b;
+            a = b;
+            b = Remainder;
+        }
+
+        return a;
+    }
 }
 
 public static class OperatorOverloading
