@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 /*
 Источник: https://metanit.com/
@@ -87,6 +88,7 @@ namespace Task05
     {
         public static void Main(string[] args)
         {
+            CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
             try
             {
                 Dollar dollar = new Dollar(decimal.Parse(Console.ReadLine()));
