@@ -58,6 +58,11 @@ namespace Task03
             }
             return clock.Hours;
         }
+
+        public override string ToString()
+        {
+            return $"{this.Hours}";
+        }
     }
 
     class MainClass

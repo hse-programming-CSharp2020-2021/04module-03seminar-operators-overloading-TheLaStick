@@ -37,6 +37,11 @@ namespace Task04
         {
             return new Celcius(5 / 9 * (fahrenheit.Gradus - 32));
         }
+
+        public override string ToString()
+        {
+            return $"{Gradus:F2}";
+        }
     }
 
     class Fahrenheit
@@ -52,6 +57,11 @@ namespace Task04
         {
             return new Fahrenheit(9 / 5 * celcius.Gradus + 32);
         }
+
+        public override string ToString()
+        {
+            return $"{Gradus:F2}";
+        }
     }
 
     class MainClass
@@ -61,8 +71,8 @@ namespace Task04
             Fahrenheit fahrenheit = new Fahrenheit(double.Parse(Console.ReadLine()));
             Celcius celcius = new Celcius(double.Parse(Console.ReadLine()));
 
-            Console.WriteLine($"{(Celcius)fahrenheit:F2}");
-            Console.WriteLine($"{(Fahrenheit)celcius:F2}");
+            Console.WriteLine((Celcius)fahrenheit);
+            Console.WriteLine((Fahrenheit)celcius);
         }
     }
 }

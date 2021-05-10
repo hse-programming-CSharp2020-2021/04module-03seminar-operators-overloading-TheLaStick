@@ -44,6 +44,11 @@ namespace Task05
             }
             return new Dollar(euro.Sum * course);
         }
+
+        public override string ToString()
+        {
+            return $"{Sum:F2}";
+        }
     }
     class Euro
     {
@@ -62,6 +67,11 @@ namespace Task05
                 throw new ArgumentException();
             }
             return new Euro(dollar.Sum / course);
+        }
+
+        public override string ToString()
+        {
+            return $"{Sum:F2}";
         }
     }
 

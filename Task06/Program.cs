@@ -84,7 +84,22 @@ public readonly struct Fraction
         return new Fraction(r1.num * r2.den, r1.den * r2.num);
     }
 
-    public override string ToString() => $"{num}/{den}";
+    public override string ToString()
+    {
+        if (this.num == 0)
+        {
+            return "0";
+        }
+        if (this.den == 1)
+        {
+            return $"{num}";
+        }
+        if (this.den == 0)
+        {
+            throw new ArgumentException();
+        }
+        return $"{num}/{den}";
+    }
 }
 
 public static class OperatorOverloading

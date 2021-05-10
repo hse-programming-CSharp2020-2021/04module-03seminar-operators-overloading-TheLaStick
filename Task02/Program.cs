@@ -68,6 +68,11 @@ namespace Task02
             }
             return state1.Population / state1.Area < state2.Population / state2.Area;
         }
+
+        public override string ToString()
+        {
+            return $"{Area} {Population}";
+        }
     }
 
     class MainClass
