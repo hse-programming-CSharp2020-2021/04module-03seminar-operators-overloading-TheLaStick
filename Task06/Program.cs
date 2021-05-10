@@ -82,10 +82,10 @@ public struct Fraction
 
     public static Fraction operator /(Fraction r1, Fraction r2)
     {
-        if (r1.den * r2.num == 0)
-        {
-            throw new ArgumentException();
-        }
+        //if (r1.den * r2.num == 0)
+        //{
+        //    throw new ArgumentException();
+        //}
         return new Fraction(r1.num * r2.den, r1.den * r2.num).Simpify();
     }
 
