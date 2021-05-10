@@ -33,6 +33,10 @@ namespace Task05
 
         public Dollar(decimal sum)
         {
+            if (sum < 0)
+            {
+                throw new ArgumentException();
+            }
             this.Sum = sum;
         }
 
@@ -57,6 +61,10 @@ namespace Task05
 
         public Euro(decimal sum)
         {
+            if (sum < 0)
+            {
+                throw new ArgumentException();
+            }
             this.Sum = sum;
         }
 
