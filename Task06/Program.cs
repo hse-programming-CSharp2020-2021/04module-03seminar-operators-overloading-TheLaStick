@@ -37,7 +37,7 @@ public struct Fraction
     {
         if (denominator == 0)
         {
-            throw new ArgumentException();
+            throw new DivideByZeroException();
         }
         this.num = numerator;
         this.den = denominator;
