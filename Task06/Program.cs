@@ -35,8 +35,53 @@ public readonly struct Fraction
 
     public Fraction(int numerator, int denominator)
     {
-        num = numerator;
-        den = denominator;
+        if (denominator == 0)
+        {
+            throw new ArgumentException();
+        }
+        this.num = numerator;
+        this.den = denominator;
+    }
+
+    public static Fraction Parse(string input)
+    {
+        if (input.Length == 1 || input.Length == 2)
+        {
+            return new Fraction(int.Parse(input), 1);
+        }
+        string[] parameters = input.Split('/');
+
+        return new Fraction(int.Parse(parameters[0]), int.Parse(parameters[1]));
+    }
+
+    public static Fraction operator +(Fraction r1, Fraction r2)
+    {
+        return new Fraction(r1.num * r2.den + r2.num * r1.den,
+            r1.den * r2.den);
+    }
+
+    public static Fraction operator -(Fraction r1, Fraction r2)
+    {
+        return new Fraction(r1.num * r2.den - r2.num * r1.den,
+            r1.den * r2.den);
+    }
+
+    public static Fraction operator *(Fraction r1, Fraction r2)
+    {
+        if (r1.den * r2.den == 0)
+        {
+            throw new ArgumentException();
+        }
+        return new Fraction(r1.num * r2.num, r1.den * r2.den);
+    }
+
+    public static Fraction operator /(Fraction r1, Fraction r2)
+    {
+        if (r1.den * r2.num == 0)
+        {
+            throw new ArgumentException();
+        }
+        return new Fraction(r1.num * r2.den, r1.den * r2.num);
     }
 
     public override string ToString() => $"{num}/{den}";
@@ -48,7 +93,12 @@ public static class OperatorOverloading
     {
         try
         {
-            
+            Fraction a = Fraction.Parse(Console.ReadLine());
+            Fraction b = Fraction.Parse(Console.ReadLine());
+            Console.WriteLine(a + b);
+            Console.WriteLine(a - b);
+            Console.WriteLine(a * b);
+            Console.WriteLine(a / b);
         }
         catch (ArgumentException)
         {

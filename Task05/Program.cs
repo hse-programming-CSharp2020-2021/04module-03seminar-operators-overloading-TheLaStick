@@ -28,20 +28,54 @@ namespace Task05
 {
     class Dollar
     {
+        const decimal course = 1.14M;
         public decimal Sum { get; set; }
+
+        public Dollar(decimal sum)
+        {
+            this.Sum = sum;
+        }
+
+        public static explicit operator Dollar(Euro euro)
+        {
+            if (euro.Sum < 0)
+            {
+                throw new ArgumentException();
+            }
+            return new Dollar(euro.Sum * course);
+        }
     }
     class Euro
     {
+        const decimal course = 1.14M;
         public decimal Sum { get; set; }
+
+        public Euro(decimal sum)
+        {
+            this.Sum = sum;
+        }
+
+        public static explicit operator Euro(Dollar dollar)
+        {
+            if (dollar.Sum < 0)
+            {
+                throw new ArgumentException();
+            }
+            return new Euro(dollar.Sum / course);
+        }
     }
 
     class MainClass
     {
         public static void Main(string[] args)
         {
+            Dollar dollar = new Dollar(decimal.Parse(Console.ReadLine()));
+            Euro euro = new Euro(decimal.Parse(Console.ReadLine()));
+
             try
             {
-
+                Console.WriteLine((Euro)dollar);
+                Console.WriteLine((Dollar)euro);
             }
             catch (ArgumentException)
             {
