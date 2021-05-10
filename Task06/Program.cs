@@ -49,7 +49,12 @@ public struct Fraction
         {
             return new Fraction(int.Parse(input), 1);
         }
+
         string[] parameters = input.Split('/');
+        if (int.Parse(parameters[1]) == 0)
+        {
+            throw new ArgumentException();
+        }
 
         return new Fraction(int.Parse(parameters[0]), int.Parse(parameters[1]));
     }
