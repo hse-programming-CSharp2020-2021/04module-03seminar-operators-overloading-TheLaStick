@@ -57,13 +57,13 @@ public readonly struct Fraction
     public static Fraction operator +(Fraction r1, Fraction r2)
     {
         return new Fraction(r1.num * r2.den + r2.num * r1.den,
-            r1.den * r2.den);
+            r1.den * r2.den).Simpify();
     }
 
     public static Fraction operator -(Fraction r1, Fraction r2)
     {
         return new Fraction(r1.num * r2.den - r2.num * r1.den,
-            r1.den * r2.den);
+            r1.den * r2.den).Simpify();
     }
 
     public static Fraction operator *(Fraction r1, Fraction r2)
@@ -72,7 +72,7 @@ public readonly struct Fraction
         {
             throw new ArgumentException();
         }
-        return new Fraction(r1.num * r2.num, r1.den * r2.den);
+        return new Fraction(r1.num * r2.num, r1.den * r2.den).Simpify();
     }
 
     public static Fraction operator /(Fraction r1, Fraction r2)
@@ -81,7 +81,7 @@ public readonly struct Fraction
         {
             throw new ArgumentException();
         }
-        return new Fraction(r1.num * r2.den, r1.den * r2.num);
+        return new Fraction(r1.num * r2.den, r1.den * r2.num).Simpify();
     }
 
     public override string ToString()
