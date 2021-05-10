@@ -56,7 +56,7 @@ namespace Task03
             {
                 throw new ArgumentException();
             }
-            return clock.Hours;
+            return clock.Hours * 60;
         }
 
         public override string ToString()
@@ -74,8 +74,8 @@ namespace Task03
             {
                 Clock clock = new Clock { Hours = int.Parse(Console.ReadLine()) };
 
-                Console.WriteLine((Clock)minute);
                 Console.WriteLine((int)clock);
+                Console.WriteLine((Clock)minute);
             }
             catch (ArgumentException)
             {
