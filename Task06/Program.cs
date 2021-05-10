@@ -28,10 +28,10 @@ Fraction - упрощенная структура, представляющая
 Код метода Main можно подвергнуть изменениям, но вывод меняться не должен.
 */
 
-public readonly struct Fraction
+public struct Fraction
 {
-    private readonly int num;
-    private readonly int den;
+    private int num;
+    private int den;
 
     public Fraction(int numerator, int denominator)
     {
@@ -103,27 +103,25 @@ public readonly struct Fraction
 
     public Fraction Simpify()
     {
-
         int divisor = GCD(num, den);
-        int newNum = num / divisor,
-            newDenom = den / divisor;
-        newDenom /= divisor;
+        num /= divisor;
+        den /= divisor;
 
-        if (newDenom < 0)
+        if (den < 0)
         {
-            int newNom = -newNum,
-            newDen = -newDenom;
+            int newNom = -num,
+            newDen = -den;
             return new Fraction(newNom, newDen);
         }
-        if (newDenom == 0)
+        if (den == 0)
         {
             return new Fraction(0, 1);
         }
-        if (newNum == newDenom)
+        if (num == den)
         {
             return new Fraction(1, 1);
         }
-        if (newNum == -newDenom)
+        if (num == -den)
         {
             return new Fraction(-1, 1);
         }
