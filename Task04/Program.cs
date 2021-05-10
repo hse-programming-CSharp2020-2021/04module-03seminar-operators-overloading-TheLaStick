@@ -55,7 +55,7 @@ namespace Task04
 
         public static explicit operator Fahrenheit(Celcius celcius)
         {
-            return new Fahrenheit(celcius.Gradus * 5 / 9 + 32);
+            return new Fahrenheit(celcius.Gradus * 9 / 5 + 32);
         }
 
         public override string ToString()
